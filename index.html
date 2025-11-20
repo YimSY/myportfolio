@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinyan (Amy) Yim | Product Designer & Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS STYLES --- */
+        /* Doraemon-inspired Color Palette */
+        :root {
+            --dora-blue: #0078D7;      /* Primary Blue (Doraemon's body) */
+            --dora-red: #ED1C24;       /* Secondary Red (Nose/collar) */
+            --dora-yellow: #FFDD00;    /* Accent Yellow (Bell) */
+            --dora-light: #F0F8FF;     /* Light background (AliceBlue) */
+            --dora-white: #FFFFFF;     /* Pure white for elements */
+            --dora-dark-text: #333333; /* Dark grey for main text */
+            --dora-medium-text: #555555; /* Medium grey for descriptions */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Albert Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dora-dark-text);
+            background-color: var(--dora-light);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--dora-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Softer shadow */
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-weight: 700; font-size: 1.4rem; color: var(--dora-blue); text-decoration: none; }
+        
+        .nav-links a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--dora-dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-links a:hover { color: var(--dora-red); } /* Hover with red accent */
+
+        .btn-resume {
+            background-color: var(--dora-blue);
+            color: var(--dora-white) !important; /* !important to override nav-links color */
+            padding: 10px 20px;
+            border-radius: 25px; /* More rounded */
+            font-weight: 700;
+            transition: background-color 0.3s ease-in-out, transform 0.2s;
+        }
+        .btn-resume:hover { 
+            background-color: var(--dora-red); /* Hover with red */
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: var(--dora-white);
+            border-bottom: 5px solid var(--dora-blue); /* Strong blue border */
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            color: var(--dora-blue); 
+            margin-bottom: 1rem; 
+            font-weight: 700;
+        }
+        .hero p { 
+            font-size: 1.3rem; 
+            color: var(--dora-medium-text); 
+            max-width: 700px; 
+            margin: 0 auto 2.5rem; 
+            font-weight: 400;
+        }
+        .tagline { 
+            color: var(--dora-red); /* Highlight key roles with red */
+            font-weight: 700; 
+        }
+
+        /* Sections */
+        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+        h2 { 
+            font-size: 2.5rem; 
+            margin-bottom: 2.5rem; 
+            color: var(--dora-blue); 
+            border-bottom: 3px solid var(--dora-yellow); /* Yellow underline */
+            display: inline-block;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        /* Project Grid */
+        .filter-bar { 
+            margin-bottom: 2.5rem; 
+            text-align: center;
+        }
+        .filter-btn {
+            border: 1px solid var(--dora-blue);
+            background: var(--dora-white);
+            color: var(--dora-blue);
+            padding: 10px 20px;
+            margin: 0 8px 10px 0; /* Adjust margin for spacing */
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+        }
+        .filter-btn.active, .filter-btn:hover { 
+            background-color: var(--dora-blue); 
+            color: var(--dora-white); 
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--dora-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Stronger, softer shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+        }
+        
+        .card-img {
+            height: 220px;
+            background-color: var(--dora-light); /* Light background for placeholders */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dora-medium-text);
+            font-weight: 500;
+            overflow: hidden; /* Ensure images don't spill */
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            display: block; /* Remove extra space below image */
+        }
+        
+        .card-content { padding: 1.8rem; }
+        .card h3 { 
+            margin-bottom: 0.75rem; 
+            color: var(--dora-blue); 
+            font-size: 1.5rem; 
+            font-weight: 700;
+        }
+        .card-tags { 
+            font-size: 0.85rem; 
+            color: var(--dora-red); 
+            margin-bottom: 1.2rem; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card p { font-size: 1rem; margin-bottom: 1.5rem; color: var(--dora-medium-text); }
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--dora-blue);
+            color: var(--dora-blue);
+            padding: 8px 18px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-outline:hover { 
+            background-color: var(--dora-blue); 
+            color: var(--dora-white); 
+            border-color: var(--dora-blue);
+        }
+
+        /* About & Skills */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        #about { background-color: var(--dora-white); border-top: 5px solid var(--dora-red); } /* Red border for about */
+
+        .about-grid p { font-size: 1.1rem; color: var(--dora-medium-text); margin-bottom: 1rem; }
+        .skills h3 { 
+            font-size: 1.8rem; 
+            color: var(--dora-blue); 
+            margin-bottom: 1.5rem; 
+            font-weight: 700;
+        }
+        .skills ul { 
+            list-style: none; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            margin-top: 1.5rem; 
+        }
+        .skills li { 
+            background: #e6f2ff; /* Lighter blue for skill tags */
+            padding: 8px 18px; 
+            border-radius: 20px; 
+            font-size: 0.95rem; 
+            color: var(--dora-blue); 
+            font-weight: 500;
+            border: 1px solid #cce0ff;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dora-blue);
+            color: var(--dora-white);
+            text-align: center;
+            padding: 3rem;
+            margin-top: 5rem;
+            font-weight: 400;
+        }
+        footer a { color: var(--dora-yellow); text-decoration: none; transition: color 0.3s ease; }
+        footer a:hover { color: var(--dora-red); }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .nav-links a { margin-left: 15px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            h2 { font-size: 2rem; }
+            .grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .about-grid { grid-template-columns: 1fr; }
+            .skills { margin-top: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; align-items: flex-start; }
+            .nav-links { 
+                margin-top: 1rem; 
+                width: 100%; 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center;
+            }
+            .nav-links a { margin: 5px 10px; }
+            .btn-resume { margin-left: 0; margin-top: 10px; width: auto; text-align: center; }
+
+            .hero { padding: 4rem 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            section { padding: 3rem 1rem; }
+            h2 { font-size: 1.8rem; }
+            .filter-btn { margin: 5px 5px; padding: 8px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Sinyan (Amy) Yim</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="path/to/your/resume.pdf" target="_blank" class="btn-resume">Download Resume</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Hello, I'm Sinyan (Amy) Yim</h1>
+        <p>A <span class="tagline">Product Designer</span> & <span class="tagline">Mechanical Engineer</span> based in Canada.</p>
+        <p>I blend technical rigor with human-centered design, bridging hardware constraints and user experience to build innovative, empathetic products that make a real impact.</p>
+        <br>
+        <a href="#work" class="btn-resume" style="padding: 14px 28px; font-size: 1.2rem; border-radius: 30px;">View My Work</a>
+    </header>
+
+    <section id="work">
+        <h2>Selected Projects</h2>
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="product-design">Product Design</button>
+            <button class="filter-btn" data-filter="engineering">Engineering</button>
+            <button class="filter-btn" data-filter="education">Education</button>
+        </div>
+
+        <div class="grid">
+            <div class="card" data-category="product-design">
+                <div class="card-img" style="background: #e6f2ff;"> <img src="https://via.placeholder.com/400x220?text=Good+Morning+App" alt="Good Morning App UI Mockup"> 
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">UX/UI Design • Mobile App • Hackathon</div>
+                    <h3>Good Morning App</h3>
+                    <p>Designed a mood-based alarm application that adapts wake-up activities to the user's emotional state. Led user research, wireframing, and UI design within a 36-hour sprint.</p>
+                    <a href="https://amyyim1989.wixsite.com/portfolio/good-morning" class="btn-outline">View Case Study</a>
+                </div>
+            </div>
+
+            <div class="card" data-category="engineering">
+                <div class="card-img" style="background: #fff8e1;"> <img src="https://via.placeholder.com/400x220?text=Autonomous+Chair+Robot" alt="Autonomous Chair Parking Robot Prototype"> 
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">Robotics • Mechanical Engineering • C#</div>
+                    <h3>Autonomous Chair Parking System</h3>
+                    <p>Engineered an autonomous robotic system using C# and custom hardware to automatically park chairs, mitigating ergonomic risks in dynamic environments. Involved CAD, sensor integration, and control logic.</p>
+                    <a href="https://amyyim1989.wixsite.com/portfolio/automatic-chair-parking" class="btn-outline">View Engineering Process</a>
+                </div>
+            </div>
+
+            <div class="card" data-category="education">
+                <div class="card-img" style="background: #e1f5fe;"> <img src="https://via.placeholder.com/400x220?text=VR+Tour+Experience" alt="VR Tour Experience Screenshot"> 
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">VR Design • Unity • Instructional Design</div>
+                    <h3>Read@ Ingenium VR Tour</h3>
+                    <p>Developed an immersive virtual reality tour using Unity, designed to transform historical archives into an engaging educational experience. Managed content, animation, and interaction design for learning outcomes.</p>
+                    <a href="https://amyyim1989.wixsite.com/portfolio/read-ingenium-vr-tour" class="btn-outline">View Project Details</a>
+                </div>
+            </div>
+
+             <div class="card" data-category="engineering product-design">
+                <div class="card-img" style="background: #fdf3e6;"> <img src="https://via.placeholder.com/400x220?text=Smart+Home+IoT" alt="Smart Home IoT Dashboard"> 
+                </div>
+                <div class="card-content">
+                    <div class="card-tags">IoT • System Design • Product Management</div>
+                    <h3>EcoSense Smart Home System</h3>
+                    <p>Designed and prototyped an integrated IoT platform for residential energy management. Focused on intuitive user controls, real-time data visualization, and seamless device integration for sustainable living.</p>
+                    <a href="#" class="btn-outline">Explore Project</a>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <section id="about">
+        <div class="about-grid">
+            <div>
+                <h2>About Me</h2>
+                <p>With a comprehensive background in <strong>Mechanical Engineering</strong> from the University of Waterloo, combined with a passion for <strong>Product Design</strong> and a foundation in <strong>Education</strong>, I excel at tackling complex challenges from multiple angles.</p>
+                <br>
+                <p>My journey from designing robust mechanical systems to crafting intuitive user experiences has equipped me with a unique ability to understand both the technical feasibility and the human desirability of a product. I thrive on bringing ideas from concept through to tangible, impactful solutions.</p>
+                <br>
+                <p>Currently seeking challenging roles in Canada, I am eager to contribute my interdisciplinary expertise to teams building the next generation of innovative products, particularly where hardware and software intersect to enhance human interaction.</p>
+            </div>
+            <div class="skills">
+                <h3>Technical Toolbox</h3>
+                <ul>
+                    <li>Figma</li>
+                    <li>Adobe Creative Suite (Ps, Ai, Id)</li>
+                    <li>SolidWorks (CAD)</li>
+                    <li>Fusion 360</li>
+                    <li>Unity (VR/AR Development)</li>
+                    <li>C#</li>
+                    <li>Python</li>
+                    <li>HTML/CSS/JavaScript Basics</li>
+                    <li>User Research & Testing</li>
+                    <li>Prototyping (Low-fi to High-fi)</li>
+                    <li>Design Thinking</li>
+                    <li>Agile/Scrum Methodologies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Sinyan (Amy) Yim. All rights reserved.</p>
+        <p style="margin-top: 10px;">
+            <a href="https://www.linkedin.com/in/sinyanyim/" target="_blank">LinkedIn</a> | 
+            <a href="mailto:amyyim1989@gmail.com">Email Me</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to the clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.dataset.filter;
+
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.dataset.category.includes(filterValue)) {
+                            card.style.display = 'block'; // Show card
+                        } else {
+                            card.style.display = 'none'; // Hide card
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
