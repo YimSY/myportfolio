@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name | Amy Yim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Same Variables as Home */
+        :root {
+            --dora-blue: #0078D7;
+            --dora-red: #ED1C24;
+            --dora-yellow: #FFDD00;
+            --text-dark: #2C3E50;
+            --bg: #F4F9FD;
+        }
+        
+        body { font-family: 'Albert Sans', sans-serif; background: white; color: var(--text-dark); margin: 0; line-height: 1.7; }
+        
+        /* Project Header */
+        .project-hero {
+            background: var(--bg);
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .back-link { text-decoration: none; color: var(--dora-blue); font-weight: 600; margin-bottom: 20px; display: block; }
+        
+        h1 { font-size: 3rem; color: var(--dora-blue); margin-bottom: 1rem; }
+        .subtitle { font-size: 1.5rem; color: #666; max-width: 700px; margin: 0 auto 2rem; }
+        
+        /* Summary Grid */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            border-top: 2px solid var(--dora-yellow);
+        }
+        .summary-item h4 { color: var(--dora-red); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px; }
+        
+        /* Content Sections */
+        .content-section { max-width: 800px; margin: 0 auto; padding: 3rem 5%; }
+        
+        h2 { font-size: 2rem; color: var(--dora-blue); margin-top: 3rem; margin-bottom: 1.5rem; }
+        p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #444; }
+        
+        /* Image Styling */
+        .project-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .caption { text-align: center; font-size: 0.9rem; color: #888; margin-top: -1.5rem; margin-bottom: 2rem; font-style: italic; }
+
+        /* Bullet points for impact */
+        ul { margin-bottom: 2rem; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="project-hero">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <h1>Squida</h1>
+        <p class="subtitle">A smart lamp for long-distance couples to share emotions via color and emojis.</p>
+        
+        <div class="summary-grid">
+            <div class="summary-item">
+                <h4>My Role</h4>
+                <p>Product Designer & Researcher</p>
+            </div>
+            <div class="summary-item">
+                <h4>Timeline</h4>
+                <p>4 Weeks (Course Project)</p>
+            </div>
+            <div class="summary-item">
+                <h4>Tools</h4>
+                <p>SolidWorks, Unity, Adobe Suite</p>
+            </div>
+            <div class="summary-item">
+                <h4>Outcome</h4>
+                <p>Awarded Best Design in Class</p>
+            </div>
+        </div>
+    </div>
+
+    <article class="content-section">
+        
+        <h2>The Problem</h2>
+        <p>Long-distance relationships suffer from a lack of non-verbal cues. Text messaging often conceals negative emotions, leading to misunderstandings and a sense of disconnection.</p>
+        
+        <h2>The Solution</h2>
+        <p>Squida is an IoT-enabled lamp that sits on the user's desk. It allows partners to send "ambient" emotional signals (colors) without the pressure of composing a text message.</p>
+        <img src="path/to/squida-hero.jpg" class="project-img" alt="Squida Final Render">
+        <p class="caption">Final rendering of the Squida device.</p>
+
+        <h2>Research & Insights</h2>
+        <p>We interviewed 5 couples currently in LDRs. Key insights included:</p>
+        <ul>
+            <li><strong>Concealed Negativity:</strong> Partners hide bad days to avoid "burdening" the other.</li>
+            <li><strong>Time Zone Friction:</strong> Real-time calls are rare; asynchronous signals are needed.</li>
+        </ul>
+
+        <h2>Ideation & Prototyping</h2>
+        <p>We started with sketches focusing on organic shapes that felt "friendly" rather than "techy."</p>
+        <img src="path/to/sketches.jpg" class="project-img" alt="Initial Sketches">
+        <p>Moved to SolidWorks for the enclosure design, ensuring it could house the Arduino components.</p>
+
+        <h2>Outcome & Reflection</h2>
+        <p>The final prototype was successfully tested for ergonomic fit. If I were to do this again, I would focus more on the mobile app interface that controls the lamp colors.</p>
+
+    </article>
+
+    <div style="text-align:center; padding: 2rem; background: #F4F9FD;">
+        <a href="index.html" class="back-link">View Other Projects</a>
+    </div>
+
+</body>
+</html>
