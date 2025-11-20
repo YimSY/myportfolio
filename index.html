@@ -52,8 +52,16 @@
             align-items: center;
             gap: 10px;
         }
+
+        /* Robot Icon Styling */
+        .logo svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--dora-blue);
+            transition: transform 0.3s ease;
+        }
         
-        .logo span { color: var(--dora-red); }
+        .logo:hover svg { fill: var(--dora-red); transform: rotate(15deg); }
 
         .nav-links a {
             text-decoration: none;
@@ -78,17 +86,55 @@
             transform: translateY(-2px);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (Now with Image) --- */
         .hero {
-            text-align: center;
-            padding: 6rem 1rem 4rem;
-            max-width: 900px;
+            padding: 6rem 5% 4rem;
+            max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Spreads text and image apart */
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 650px;
+        }
+
+        .hero-image-container {
+            flex: 0 0 320px; /* Fixed width for image container */
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-container img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover; /* Ensures photo doesn't stretch */
+            border-radius: 50%; /* Circle shape */
+            border: 6px solid white;
+            box-shadow: 0 15px 35px rgba(0,120,215,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Decorative Yellow Circle Behind Image */
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--dora-yellow);
+            border-radius: 50%;
+            top: 20px;
+            right: -20px; /* Offset slightly to right */
+            z-index: 1;
         }
 
         .badges {
             display: flex;
-            justify-content: center;
             gap: 10px;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
@@ -96,9 +142,9 @@
 
         .badge {
             background: white;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--text-light);
             border: 2px solid #E1E8ED;
@@ -108,7 +154,7 @@
         .badge.secondary { border-color: var(--dora-yellow); color: #F57F17; }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 1.5rem;
@@ -118,31 +164,55 @@
         .hero h1 span { color: var(--dora-blue); }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--text-light);
-            max-width: 750px;
-            margin: 0 auto 2rem;
+            margin-bottom: 2rem;
         }
 
-        /* --- PROJECTS SECTION --- */
+        /* --- FILTER BAR --- */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
             color: var(--dora-blue);
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             position: relative;
         }
         
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 6px;
-            background: var(--dora-yellow);
-            border-radius: 3px;
-            margin: 10px auto 0;
+        .filter-container {
+            text-align: center;
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #E3F2FD;
+            color: var(--text-light);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: 'Albert Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--dora-blue);
+            color: var(--dora-blue);
+        }
+        
+        .filter-btn.active {
+            background: var(--dora-blue);
+            border-color: var(--dora-blue);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,120,215,0.3);
+        }
+
+        /* --- PROJECTS GRID --- */
         .container { max-width: 1100px; margin: 0 auto; padding: 0 5% 5rem; }
 
         .project-grid {
@@ -158,6 +228,13 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
             border: 1px solid transparent;
+            /* Animation for filtering */
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .card:hover {
@@ -173,6 +250,7 @@
             justify-content: center;
             color: var(--dora-blue);
             font-weight: 600;
+            overflow: hidden;
         }
         
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -235,71 +313,50 @@
             box-shadow: 0 0 0 3px var(--dora-bg);
         }
 
-        .timeline-date {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--dora-red);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
+        .timeline-date { font-size: 0.85rem; font-weight: 700; color: var(--dora-red); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
         .timeline-title { font-size: 1.3rem; color: var(--dora-blue); font-weight: 700; }
         .timeline-loc { font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; display: block;}
         .timeline-desc { font-size: 1rem; color: var(--text-light); }
 
         /* --- ABOUT SECTION --- */
-        .about-section {
-            background: var(--dora-bg);
-            padding: 5rem 5%;
-        }
-
-        .about-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
+        .about-section { background: var(--dora-bg); padding: 5rem 5%; }
+        .about-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
         .about-text h2 { color: var(--dora-blue); font-size: 2rem; margin-bottom: 1.5rem; }
         .about-text p { margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-dark); }
-        
         .skills-category { margin-bottom: 1.5rem; }
         .skills-category h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
-        
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
-        
-        .skill-pill {
-            background: white;
-            color: var(--dora-blue);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid #E1E8ED;
-        }
+        .skill-pill { background: white; color: var(--dora-blue); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #E1E8ED; }
 
         /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 3rem;
-            background: var(--text-dark);
-            color: white;
-        }
+        footer { text-align: center; padding: 3rem; background: var(--text-dark); color: white; }
         footer a { color: var(--dora-yellow); text-decoration: none; margin: 0 10px; }
 
-        @media (max-width: 768px) {
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse; /* Puts text below image on mobile */
+                text-align: center;
+                padding-top: 4rem;
+            }
+            .hero-image-container::before {
+                right: 10px; /* Adjust decorative circle for mobile centering */
+            }
+            .badges { justify-content: center; }
             .about-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Hide nav links for simplicity */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">Amy Yim<span>.</span></a>
+        <a href="#" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2C12 2 12 2 12 2C7.58 2 4 5.58 4 10V12H3C2.45 12 2 12.45 2 13V17C2 17.55 2.45 18 3 18H4V19C4 20.66 5.34 22 7 22H17C18.66 22 20 20.66 20 19V18H21C21.55 18 22 17.55 22 17V13C22 12.45 21.55 12 21 12H20V10C20 5.58 16.42 2 12 2ZM9 13.5C9 12.67 9.67 12 10.5 12C11.33 12 12 12.67 12 13.5C12 14.33 11.33 15 10.5 15C9.67 15 9 14.33 9 13.5ZM15 12C15.83 12 16.5 12.67 16.5 13.5C16.5 14.33 15.83 15 15 15C14.17 15 13.5 14.33 13.5 13.5C13.5 12.67 14.17 12 15 12ZM7 19V18H17V19H7ZM12 4C14.67 4 16.94 5.69 17.71 8.04C16.05 8.5 14.18 8.5 12 8.5C9.82 8.5 7.95 8.5 6.29 8.04C7.06 5.69 9.33 4 12 4Z"/>
+            </svg>
+            Amy Yim
+        </a>
         <div class="nav-links">
             <a href="#work">Work</a>
             <a href="#experience">Experience</a>
@@ -310,27 +367,41 @@
     </nav>
 
     <header class="hero">
-        <div class="badges">
-            <div class="badge primary">M.Eng Product Design</div>
-            <div class="badge secondary">Ontario Certified Teacher</div>
-            <div class="badge">Mechanical E.I.T.</div>
+        <div class="hero-text">
+            <div class="badges">
+                <div class="badge primary">M.Eng Product Design</div>
+                <div class="badge secondary">Ontario Certified Teacher</div>
+                <div class="badge">Mechanical E.I.T.</div>
+            </div>
+            
+            <h1>Product Designer with an <br><span>Engineering Edge.</span></h1>
+            
+            <p>I craft intuitive digital and physical products by blending the technical rigor of mechanical engineering with the empathy of an educator.</p>
+            
+            <a href="#work" class="btn-resume" style="font-size: 1.1rem; padding: 15px 30px;">View Portfolio</a>
         </div>
         
-        <h1>Product Designer with an <br><span>Engineering Edge.</span></h1>
-        
-        <p>I craft intuitive digital and physical products by blending the technical rigor of mechanical engineering with the empathy of an educator.</p>
-        <br>
-        <a href="#work" class="btn-resume" style="font-size: 1.1rem; padding: 15px 30px;">View Design Portfolio</a>
+        <div class="hero-image-container">
+            <img src="profile.jpg" alt="Amy Yim Headshot">
+        </div>
     </header>
 
     <section id="work" class="container">
         <h2 class="section-title">Selected Work</h2>
         
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('product', this)">Product Design</button>
+            <button class="filter-btn" onclick="filterProjects('engineering', this)">Engineering</button>
+            <button class="filter-btn" onclick="filterProjects('education', this)">Education</button>
+        </div>
+        
         <div class="project-grid">
             
-            <div class="card">
+            <div class="card" data-category="product engineering">
                 <div class="card-img">
-                    [Squida Product Shot]
+                    <img src="squida-thumb.jpg" alt="Squida Lamp" style="display:none"> 
+                    [Squida Image Here]
                 </div>
                 <div class="card-content">
                     <div class="tags">Product Design • IoT • SolidWorks</div>
@@ -340,9 +411,9 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="product">
                 <div class="card-img">
-                    [App UI Shot]
+                    [App UI Image Here]
                 </div>
                 <div class="card-content">
                     <div class="tags">UX/UI Design • Mobile App</div>
@@ -352,9 +423,9 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="product education">
                 <div class="card-img">
-                    [VR Headset/Unity Shot]
+                    [VR Headset Image Here]
                 </div>
                 <div class="card-content">
                     <div class="tags">XR Design • Unity • C#</div>
@@ -364,9 +435,9 @@
                 </div>
             </div>
 
-             <div class="card">
+             <div class="card" data-category="education">
                 <div class="card-img">
-                    [Curriculum/Workshop Visual]
+                    [Classroom/Workshop Image Here]
                 </div>
                 <div class="card-content">
                     <div class="tags">Learning Experience Design</div>
@@ -464,6 +535,39 @@
         <a href="https://www.linkedin.com/in/sinyanyim/" target="_blank">LinkedIn</a>
         <a href="mailto:amyyim1989@gmail.com">Email Me</a>
     </footer>
+
+    <script>
+        function filterProjects(category, btn) {
+            // 1. Handle Button Active State
+            var buttons = document.getElementsByClassName('filter-btn');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            btn.classList.add('active');
+
+            // 2. Handle Card Visibility
+            var cards = document.getElementsByClassName('card');
+            for (var i = 0; i < cards.length; i++) {
+                var card = cards[i];
+                
+                // If "all" is selected, show everything
+                if (category === 'all') {
+                    card.style.display = 'block';
+                    // Optional: Add fade animation reset here if needed
+                } else {
+                    // Get the categories from the card (e.g. "product engineering")
+                    var cardCategories = card.getAttribute('data-category');
+                    
+                    // Check if the selected category exists in the card's list
+                    if (cardCategories.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
