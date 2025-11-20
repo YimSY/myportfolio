@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amy Yim | Teacher & Engineer</title>
+    <title>Amy Yim | Product Designer</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,18 +100,19 @@
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--dora-blue);
+            color: var(--text-light);
             border: 2px solid #E1E8ED;
         }
         
-        .badge.highlight { border-color: var(--dora-red); color: var(--dora-red); }
+        .badge.primary { border-color: var(--dora-blue); color: var(--dora-blue); }
+        .badge.secondary { border-color: var(--dora-yellow); color: #F57F17; }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .hero h1 span { color: var(--dora-blue); }
@@ -123,53 +124,7 @@
             margin: 0 auto 2rem;
         }
 
-        /* --- TIMELINE SECTION (NEW) --- */
-        .timeline-section {
-            background: white;
-            padding: 4rem 5%;
-            margin-bottom: 2rem;
-        }
-
-        .timeline-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            border-left: 3px solid var(--dora-bg);
-            padding-left: 2rem;
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.6rem;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: var(--dora-yellow);
-            border: 3px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px var(--dora-bg);
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--dora-red);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title { font-size: 1.3rem; color: var(--dora-blue); font-weight: 700; }
-        .timeline-loc { font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; display: block;}
-        .timeline-desc { font-size: 1rem; color: var(--text-light); }
-
-        /* --- SELECTED WORK --- */
+        /* --- PROJECTS SECTION --- */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -211,7 +166,7 @@
         }
 
         .card-img {
-            height: 220px;
+            height: 240px;
             background-color: #E3F2FD;
             display: flex;
             align-items: center;
@@ -246,11 +201,57 @@
         }
         .btn-text:hover { gap: 10px; transition: gap 0.2s; }
 
+        /* --- TIMELINE SECTION --- */
+        .timeline-section {
+            background: white;
+            padding: 4rem 5%;
+            margin-bottom: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-left: 3px solid var(--dora-bg);
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--dora-yellow);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--dora-bg);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dora-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title { font-size: 1.3rem; color: var(--dora-blue); font-weight: 700; }
+        .timeline-loc { font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; display: block;}
+        .timeline-desc { font-size: 1rem; color: var(--text-light); }
+
         /* --- ABOUT SECTION --- */
         .about-section {
-            background: white;
+            background: var(--dora-bg);
             padding: 5rem 5%;
-            border-top: 5px solid var(--dora-red);
         }
 
         .about-grid {
@@ -264,15 +265,19 @@
         .about-text h2 { color: var(--dora-blue); font-size: 2rem; margin-bottom: 1.5rem; }
         .about-text p { margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-dark); }
         
-        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+        .skills-category { margin-bottom: 1.5rem; }
+        .skills-category h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+        
+        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
         
         .skill-pill {
-            background: var(--dora-bg);
+            background: white;
             color: var(--dora-blue);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+            border: 1px solid #E1E8ED;
         }
 
         /* --- FOOTER --- */
@@ -287,17 +292,17 @@
         @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">Sin Yan (Amy) Yim<span>.</span></a>
+        <a href="#" class="logo">Amy Yim<span>.</span></a>
         <div class="nav-links">
+            <a href="#work">Work</a>
             <a href="#experience">Experience</a>
-            <a href="#work">Projects</a>
             <a href="#about">About</a>
             <a href="mailto:amyyim1989@gmail.com">Contact</a>
             <a href="your-resume.pdf" class="btn-resume">Resume (PDF)</a>
@@ -306,78 +311,104 @@
 
     <header class="hero">
         <div class="badges">
-            <div class="badge highlight">Ontario Certified Teacher (OCT)</div>
+            <div class="badge primary">M.Eng Product Design</div>
+            <div class="badge secondary">Ontario Certified Teacher</div>
             <div class="badge">Mechanical E.I.T.</div>
-            <div class="badge">M.E.D. Product Design</div>
         </div>
-        <h1>Bridging Engineering & Education</h1>
-        <p>I am an educator with an engineer's mindset. I utilize my background in mechanical design and research to create inquiry-based, hands-on STEM curricula for the next generation.</p>
+        
+        <h1>Product Designer with an <br><span>Engineering Edge.</span></h1>
+        
+        <p>I craft intuitive digital and physical products by blending the technical rigor of mechanical engineering with the empathy of an educator.</p>
         <br>
-        <a href="#experience" class="btn-resume" style="font-size: 1.1rem; padding: 15px 30px;">View My Journey</a>
+        <a href="#work" class="btn-resume" style="font-size: 1.1rem; padding: 15px 30px;">View Design Portfolio</a>
     </header>
 
-   
-
     <section id="work" class="container">
-        <h2 class="section-title">Design & Education Projects</h2>
+        <h2 class="section-title">Selected Work</h2>
         
         <div class="project-grid">
             
             <div class="card">
                 <div class="card-img">
-                    
-
-[Image of STEM Workshop]
-
-                </div>
-                <div class="card-content">
-                    <div class="tags">Curriculum Design • STEM • Outreach</div>
-                    <h3>Girl Guides STEM Curriculum</h3>
-                    <p>Developed 10+ virtual curriculum modules addressing UN Sustainable Development Goals, Indigenous knowledge, and gender equality in STEM.</p>
-                    <a href="#" class="btn-text">View Details →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img">
-                    
-
-[Image of Squida Lamp]
-
+                    [Squida Product Shot]
                 </div>
                 <div class="card-content">
                     <div class="tags">Product Design • IoT • SolidWorks</div>
                     <h3>Squida: Emotional Connection</h3>
-                    <p>A smart lamp allowing long-distance partners to share emotions via color. Bridging physical product design with user empathy.</p>
+                    <p>A smart lamp enabling non-verbal communication for long-distance partners. Bridged physical form (CAD) with digital interaction (Arduino).</p>
                     <a href="project-squida.html" class="btn-text">View Case Study →</a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-img">
-                    
+                    [App UI Shot]
                 </div>
                 <div class="card-content">
-                    <div class="tags">EdTech • Unity • VR</div>
+                    <div class="tags">UX/UI Design • Mobile App</div>
+                    <h3>Good Morning App</h3>
+                    <p>A mood-adaptive alarm system designed to reduce morning grogginess. Led user research and UI prototyping in a 36-hour hackathon sprint.</p>
+                    <a href="#" class="btn-text">View Case Study →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    [VR Headset/Unity Shot]
+                </div>
+                <div class="card-content">
+                    <div class="tags">XR Design • Unity • C#</div>
                     <h3>Read@ Ingenium VR Tour</h3>
-                    <p>Created a gamified Virtual Reality library tour using Unity and C#, transforming historical archiving into an interactive learning experience.</p>
+                    <p>Gamified virtual reality experience for historical archives. Designed spatial interactions and programmed logic using C#.</p>
                     <a href="#" class="btn-text">View Case Study →</a>
                 </div>
             </div>
 
              <div class="card">
                 <div class="card-img">
-                    
-
-[Image of Weather Animation]
-
+                    [Curriculum/Workshop Visual]
                 </div>
                 <div class="card-content">
-                    <div class="tags">Instructional Design • Animation</div>
-                    <h3>Meteorology Animation Series</h3>
-                    <p>Designed and narrated educational animations for the Hong Kong Observatory, achieving 80k+ views on YouTube.</p>
+                    <div class="tags">Learning Experience Design</div>
+                    <h3>Girl Guides STEM System</h3>
+                    <p>Designed a scalable virtual learning system for 100+ students, addressing UN Sustainable Development Goals through interactive content.</p>
                     <a href="#" class="btn-text">View Details →</a>
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience" class="timeline-section">
+        <h2 class="section-title">Experience & Background</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item">
+                <div class="timeline-date">Aug 2025 - Present</div>
+                <div class="timeline-title">IB MYP Design Teacher</div>
+                <span class="timeline-loc">Crescent Heights Academy, BC</span>
+                <p class="timeline-desc">Leading the creation of the school-based Design Curriculum. Instructing students in CAD (TinkerCAD), digital prototyping, and physical computing (VEX, Micro:bit).</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Aug 2024 - June 2025</div>
+                <div class="timeline-title">Design Teaching Intern & Lab Manager</div>
+                <span class="timeline-loc">Upper Canada College, ON</span>
+                <p class="timeline-desc">Managed a full-scale makerspace (Laser cutters, CNC, 3D printers). Facilitated design thinking workshops for 250+ students using the IB Design Cycle.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Sept 2023 - Apr 2024</div>
+                <div class="timeline-title">R&D Engineer (Co-op)</div>
+                <span class="timeline-loc">ArcelorMittal Dofasco</span>
+                <p class="timeline-desc">Applied engineering research methods to analyze metal forming data, translating complex technical constraints into actionable reports.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">May 2023 - Aug 2023</div>
+                <div class="timeline-title">Instructional Designer</div>
+                <span class="timeline-loc">McMaster University Engineering</span>
+                <p class="timeline-desc">Designed inclusive user journeys for educational workshops. Created content strategies to engage K-12 users in complex STEM topics.</p>
             </div>
 
         </div>
@@ -386,36 +417,49 @@
     <section id="about" class="about-section">
         <div class="about-grid">
             <div class="about-text">
-                <h2>About Me</h2>
-                <p>I am a <strong>Mechanical Engineer (E.I.T.)</strong> and <strong>Ontario Certified Teacher</strong> with over 5 years of experience in STEM instruction and product design.</p>
-                <p>My passion lies in <strong>inquiry-based learning</strong>. Whether I am managing a makerspace at Upper Canada College or researching metal forming at ArcelorMittal, I apply the same engineering rigour to problem-solving.</p>
-                <p>I am fully trilingual (English, Cantonese, Mandarin) and certified in IB MYP Design delivery.</p>
+                <h2>My Design Philosophy</h2>
+                <p>I believe the best designers are those who understand how things work (Engineering) and how people think (Education).</p>
+                <p>My background isn't a pivot; it's a convergence. My <strong>Mechanical Engineering</strong> training ensures my designs are feasible. My <strong>Teaching</strong> experience ensures my designs are intuitive and accessible.</p>
+                <p>I am looking to bring this multidisciplinary perspective to a Product Design team in Canada.</p>
             </div>
             <div>
-                <h3>Educational Toolbox</h3>
-                <div class="skills-list">
-                    <span class="skill-pill">Inquiry-Based Learning</span>
-                    <span class="skill-pill">IB MYP Design</span>
-                    <span class="skill-pill">Makerspace Mgmt</span>
-                    <span class="skill-pill">Toddle</span>
-                    <span class="skill-pill">Google Classroom</span>
-                    <span class="skill-pill">Kahoot</span>
+                <div class="skills-category">
+                    <h4>Design & Prototyping</h4>
+                    <div class="skills-list">
+                        <span class="skill-pill">Figma</span>
+                        <span class="skill-pill">SolidWorks (CSWA)</span>
+                        <span class="skill-pill">Fusion 360</span>
+                        <span class="skill-pill">Unity (XR)</span>
+                        <span class="skill-pill">Adobe Creative Suite</span>
+                    </div>
                 </div>
-                <br>
-                <h3>Technical Skills</h3>
-                <div class="skills-list">
-                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">SolidWorks / CAD</span>
-                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">Python / C#</span>
-                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">3D Printing & CNC</span>
-                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">Unity (XR)</span>
-                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">Arduino / Micro:bit</span>
+
+                <div class="skills-category">
+                    <h4>Technical & Code</h4>
+                    <div class="skills-list">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">C#</span>
+                        <span class="skill-pill">Arduino/IoT</span>
+                        <span class="skill-pill">HTML/CSS</span>
+                        <span class="skill-pill">3D Printing/CNC</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Strategy & Research</h4>
+                    <div class="skills-list">
+                        <span class="skill-pill">Inquiry-Based Learning</span>
+                        <span class="skill-pill">User Research</span>
+                        <span class="skill-pill">Instructional Design</span>
+                        <span class="skill-pill">Design Thinking</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Sin Yan (Amy) Yim. Teacher & Engineer.</p>
+        <p>© 2025 Amy Yim. Product Designer.</p>
         <br>
         <a href="https://www.linkedin.com/in/sinyanyim/" target="_blank">LinkedIn</a>
         <a href="mailto:amyyim1989@gmail.com">Email Me</a>
