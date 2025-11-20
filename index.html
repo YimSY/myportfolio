@@ -3,410 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinyan (Amy) Yim | Product Designer & Engineer</title>
-
+    <title>Sinyan (Amy) Yim | Product & Learning Designer</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS STYLES --- */
-        /* Doraemon-inspired Color Palette */
+        /* --- DORAEMON THEME VARIABLES --- */
         :root {
-            --dora-blue: #0078D7;      /* Primary Blue (Doraemon's body) */
-            --dora-red: #ED1C24;       /* Secondary Red (Nose/collar) */
-            --dora-yellow: #FFDD00;    /* Accent Yellow (Bell) */
-            --dora-light: #F0F8FF;     /* Light background (AliceBlue) */
-            --dora-white: #FFFFFF;     /* Pure white for elements */
-            --dora-dark-text: #333333; /* Dark grey for main text */
-            --dora-medium-text: #555555; /* Medium grey for descriptions */
+            --dora-blue: #0078D7;       /* Primary Brand */
+            --dora-red: #ED1C24;        /* Accents/Hovers */
+            --dora-yellow: #FFDD00;     /* Highlights/Underlines */
+            --dora-white: #FFFFFF;
+            --dora-bg: #F4F9FD;         /* Very light blue tint */
+            --text-dark: #2C3E50;
+            --text-light: #607D8B;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
         body {
             font-family: 'Albert Sans', sans-serif;
+            background-color: var(--dora-bg);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: var(--dora-dark-text);
-            background-color: var(--dora-light);
         }
 
-        /* Navigation */
+        /* --- NAVIGATION --- */
         nav {
             background: var(--dora-white);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Softer shadow */
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,120,215,0.1);
         }
 
-        .logo { font-weight: 700; font-size: 1.4rem; color: var(--dora-blue); text-decoration: none; }
-        
-        .nav-links a {
-            margin-left: 25px;
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dora-blue);
             text-decoration: none;
-            color: var(--dora-dark-text);
-            font-weight: 500;
-            transition: color 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .nav-links a:hover { color: var(--dora-red); } /* Hover with red accent */
+        
+        .logo span { color: var(--dora-red); } /* The 'bell' accent */
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--dora-blue); }
 
         .btn-resume {
             background-color: var(--dora-blue);
-            color: var(--dora-white) !important; /* !important to override nav-links color */
-            padding: 10px 20px;
-            border-radius: 25px; /* More rounded */
-            font-weight: 700;
-            transition: background-color 0.3s ease-in-out, transform 0.2s;
-        }
-        .btn-resume:hover { 
-            background-color: var(--dora-red); /* Hover with red */
-            transform: translateY(-2px);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: transform 0.2s, background 0.3s;
         }
 
-        /* Hero Section */
+        .btn-resume:hover {
+            background-color: var(--dora-red);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(237, 28, 36, 0.3);
+        }
+
+        /* --- HERO SECTION --- */
         .hero {
             text-align: center;
-            padding: 5rem 1rem;
-            background: var(--dora-white);
-            border-bottom: 5px solid var(--dora-blue); /* Strong blue border */
-        }
-        .hero h1 { 
-            font-size: 3rem; 
-            color: var(--dora-blue); 
-            margin-bottom: 1rem; 
-            font-weight: 700;
-        }
-        .hero p { 
-            font-size: 1.3rem; 
-            color: var(--dora-medium-text); 
-            max-width: 700px; 
-            margin: 0 auto 2.5rem; 
-            font-weight: 400;
-        }
-        .tagline { 
-            color: var(--dora-red); /* Highlight key roles with red */
-            font-weight: 700; 
+            padding: 6rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        /* Sections */
-        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        h2 { 
-            font-size: 2.5rem; 
-            margin-bottom: 2.5rem; 
-            color: var(--dora-blue); 
-            border-bottom: 3px solid var(--dora-yellow); /* Yellow underline */
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span { color: var(--dora-blue); }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .location-badge {
             display: inline-block;
-            padding-bottom: 8px;
-            font-weight: 700;
-        }
-
-        /* Project Grid */
-        .filter-bar { 
-            margin-bottom: 2.5rem; 
-            text-align: center;
-        }
-        .filter-btn {
-            border: 1px solid var(--dora-blue);
-            background: var(--dora-white);
+            background: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
             color: var(--dora-blue);
-            padding: 10px 20px;
-            margin: 0 8px 10px 0; /* Adjust margin for spacing */
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 25px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-weight: 500;
-        }
-        .filter-btn.active, .filter-btn:hover { 
-            background-color: var(--dora-blue); 
-            color: var(--dora-white); 
+            border: 1px solid #E1E8ED;
+            margin-bottom: 1rem;
         }
 
-        .grid {
+        /* --- SELECTED WORK --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--dora-blue);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 6px;
+            background: var(--dora-yellow);
+            border-radius: 3px;
+            margin: 10px auto 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5% 5rem;
+        }
+
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
 
         .card {
-            background: var(--dora-white);
-            border-radius: 12px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Stronger, softer shadow */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid transparent;
         }
-        .card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
-        }
-        
-        .card-img {
-            height: 220px;
-            background-color: var(--dora-light); /* Light background for placeholders */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dora-medium-text);
-            font-weight: 500;
-            overflow: hidden; /* Ensure images don't spill */
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the area, cropping if necessary */
-            display: block; /* Remove extra space below image */
-        }
-        
-        .card-content { padding: 1.8rem; }
-        .card h3 { 
-            margin-bottom: 0.75rem; 
-            color: var(--dora-blue); 
-            font-size: 1.5rem; 
-            font-weight: 700;
-        }
-        .card-tags { 
-            font-size: 0.85rem; 
-            color: var(--dora-red); 
-            margin-bottom: 1.2rem; 
-            font-weight: 700; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .card p { font-size: 1rem; margin-bottom: 1.5rem; color: var(--dora-medium-text); }
-        .btn-outline {
-            display: inline-block;
-            border: 2px solid var(--dora-blue);
-            color: var(--dora-blue);
-            padding: 8px 18px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-        .btn-outline:hover { 
-            background-color: var(--dora-blue); 
-            color: var(--dora-white); 
+
+        .card:hover {
+            transform: translateY(-8px);
             border-color: var(--dora-blue);
         }
 
-        /* About & Skills */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        #about { background-color: var(--dora-white); border-top: 5px solid var(--dora-red); } /* Red border for about */
+        .card-img {
+            height: 240px;
+            background-color: #E3F2FD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dora-blue);
+            font-weight: 600;
+        }
+        
+        /* Replace these with actual <img> tags later */
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        .about-grid p { font-size: 1.1rem; color: var(--dora-medium-text); margin-bottom: 1rem; }
-        .skills h3 { 
-            font-size: 1.8rem; 
-            color: var(--dora-blue); 
-            margin-bottom: 1.5rem; 
+        .card-content { padding: 2rem; }
+
+        .tags {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dora-red);
             font-weight: 700;
-        }
-        .skills ul { 
-            list-style: none; 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 12px; 
-            margin-top: 1.5rem; 
-        }
-        .skills li { 
-            background: #e6f2ff; /* Lighter blue for skill tags */
-            padding: 8px 18px; 
-            border-radius: 20px; 
-            font-size: 0.95rem; 
-            color: var(--dora-blue); 
-            font-weight: 500;
-            border: 1px solid #cce0ff;
+            margin-bottom: 0.5rem;
         }
 
-        /* Footer */
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-stat {
+            background: #FFF9C4; /* Light yellow */
+            color: #F57F17;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .btn-text {
+            text-decoration: none;
+            color: var(--dora-blue);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-text:hover { gap: 10px; transition: gap 0.2s; }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            background: white;
+            padding: 5rem 5%;
+            border-top: 5px solid var(--dora-red);
+        }
+
+        .about-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 { color: var(--dora-blue); font-size: 2rem; margin-bottom: 1.5rem; }
+        .about-text p { margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-dark); }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-pill {
+            background: var(--dora-bg);
+            color: var(--dora-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
         footer {
-            background: var(--dora-blue);
-            color: var(--dora-white);
             text-align: center;
             padding: 3rem;
-            margin-top: 5rem;
-            font-weight: 400;
+            background: var(--text-dark);
+            color: white;
         }
-        footer a { color: var(--dora-yellow); text-decoration: none; transition: color 0.3s ease; }
-        footer a:hover { color: var(--dora-red); }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .nav-links a { margin-left: 15px; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            h2 { font-size: 2rem; }
-            .grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-            .about-grid { grid-template-columns: 1fr; }
-            .skills { margin-top: 3rem; }
-        }
+        
+        footer a { color: var(--dora-yellow); text-decoration: none; margin: 0 10px; }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; align-items: flex-start; }
-            .nav-links { 
-                margin-top: 1rem; 
-                width: 100%; 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center;
-            }
-            .nav-links a { margin: 5px 10px; }
-            .btn-resume { margin-left: 0; margin-top: 10px; width: auto; text-align: center; }
-
-            .hero { padding: 4rem 1rem; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            section { padding: 3rem 1rem; }
-            h2 { font-size: 1.8rem; }
-            .filter-btn { margin: 5px 5px; padding: 8px 15px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Mobile menu would go here */
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">Sinyan (Amy) Yim</a>
+        <a href="#" class="logo">Sinyan (Amy) Yim<span>.</span></a>
         <div class="nav-links">
+            <a href="#work">Selected Work</a>
             <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#skills">Skills</a>
-            <a href="path/to/your/resume.pdf" target="_blank" class="btn-resume">Download Resume</a>
+            <a href="mailto:amyyim1989@gmail.com">Contact</a>
+            <a href="your-resume.pdf" class="btn-resume">Resume (PDF)</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Hello, I'm Sinyan (Amy) Yim</h1>
-        <p>A <span class="tagline">Product Designer</span> & <span class="tagline">Mechanical Engineer</span> based in Canada.</p>
-        <p>I blend technical rigor with human-centered design, bridging hardware constraints and user experience to build innovative, empathetic products that make a real impact.</p>
+        <div class="location-badge">📍 Based in Canada</div>
+        <h1>Product & Learning Experience Designer</h1>
+        <p>Blending mechanical engineering, XR, and classroom experience to design empathetic digital and physical products for learning, wellbeing, and everyday life.</p>
         <br>
-        <a href="#work" class="btn-resume" style="padding: 14px 28px; font-size: 1.2rem; border-radius: 30px;">View My Work</a>
+        <a href="#work" class="btn-resume" style="font-size: 1.1rem; padding: 15px 30px;">View Selected Work</a>
     </header>
 
-    <section id="work">
-        <h2>Selected Projects</h2>
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="product-design">Product Design</button>
-            <button class="filter-btn" data-filter="engineering">Engineering</button>
-            <button class="filter-btn" data-filter="education">Education</button>
-        </div>
-
-        <div class="grid">
-            <div class="card" data-category="product-design">
-                <div class="card-img" style="background: #e6f2ff;"> <img src="https://via.placeholder.com/400x220?text=Good+Morning+App" alt="Good Morning App UI Mockup"> 
+    <section id="work" class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        
+        <div class="project-grid">
+            <div class="card">
+                <div class="card-img">
+                    <img src="path-to-squida-image.jpg" alt="Squida Lamp" style="display:none">
+                    [Squida Image Here]
                 </div>
                 <div class="card-content">
-                    <div class="card-tags">UX/UI Design • Mobile App • Hackathon</div>
+                    <div class="tags">Product Design • IoT • Research</div>
+                    <h3>Squida: Long-Distance Connection</h3>
+                    <p>A smart lamp designed to help couples share concealed emotions through non-verbal color cues.</p>
+                    <div class="impact-stat">🏆 Course Winner</div>
+                    <br><br>
+                    <a href="project-squida.html" class="btn-text">View Case Study →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    [App UI Image Here]
+                </div>
+                <div class="card-content">
+                    <div class="tags">UX/UI • Mobile App</div>
                     <h3>Good Morning App</h3>
-                    <p>Designed a mood-based alarm application that adapts wake-up activities to the user's emotional state. Led user research, wireframing, and UI design within a 36-hour sprint.</p>
-                    <a href="https://amyyim1989.wixsite.com/portfolio/good-morning" class="btn-outline">View Case Study</a>
+                    <p>Solving morning grogginess with a mood-based alarm system. Designed user flows to balance flexibility with simplicity.</p>
+                    <div class="impact-stat">⚡ 36-Hour Hackathon</div>
+                    <br><br>
+                    <a href="project-goodmorning.html" class="btn-text">View Case Study →</a>
                 </div>
             </div>
 
-            <div class="card" data-category="engineering">
-                <div class="card-img" style="background: #fff8e1;"> <img src="https://via.placeholder.com/400x220?text=Autonomous+Chair+Robot" alt="Autonomous Chair Parking Robot Prototype"> 
+            <div class="card">
+                <div class="card-img">
+                    [Animation Still Here]
                 </div>
                 <div class="card-content">
-                    <div class="card-tags">Robotics • Mechanical Engineering • C#</div>
-                    <h3>Autonomous Chair Parking System</h3>
-                    <p>Engineered an autonomous robotic system using C# and custom hardware to automatically park chairs, mitigating ergonomic risks in dynamic environments. Involved CAD, sensor integration, and control logic.</p>
-                    <a href="https://amyyim1989.wixsite.com/portfolio/automatic-chair-parking" class="btn-outline">View Engineering Process</a>
+                    <div class="tags">Learning Design • Animation</div>
+                    <h3>Meteorology Series</h3>
+                    <p>Educational animation series translating complex weather concepts into engaging visual storytelling for the general public.</p>
+                    <div class="impact-stat">📈 80k+ Views on YouTube</div>
+                    <br><br>
+                    <a href="project-meteorology.html" class="btn-text">View Case Study →</a>
                 </div>
             </div>
 
-            <div class="card" data-category="education">
-                <div class="card-img" style="background: #e1f5fe;"> <img src="https://via.placeholder.com/400x220?text=VR+Tour+Experience" alt="VR Tour Experience Screenshot"> 
+            <div class="card">
+                <div class="card-img">
+                    [VR Headset/Screen Image]
                 </div>
                 <div class="card-content">
-                    <div class="card-tags">VR Design • Unity • Instructional Design</div>
+                    <div class="tags">VR • Unity • Education</div>
                     <h3>Read@ Ingenium VR Tour</h3>
-                    <p>Developed an immersive virtual reality tour using Unity, designed to transform historical archives into an engaging educational experience. Managed content, animation, and interaction design for learning outcomes.</p>
-                    <a href="https://amyyim1989.wixsite.com/portfolio/read-ingenium-vr-tour" class="btn-outline">View Project Details</a>
+                    <p>Gamified virtual reality tour allowing users to explore historical archives interactively.</p>
+                    <div class="impact-stat">👓 Unity & C# Integration</div>
+                    <br><br>
+                    <a href="project-ingenium.html" class="btn-text">View Case Study →</a>
                 </div>
             </div>
-
-             <div class="card" data-category="engineering product-design">
-                <div class="card-img" style="background: #fdf3e6;"> <img src="https://via.placeholder.com/400x220?text=Smart+Home+IoT" alt="Smart Home IoT Dashboard"> 
-                </div>
-                <div class="card-content">
-                    <div class="card-tags">IoT • System Design • Product Management</div>
-                    <h3>EcoSense Smart Home System</h3>
-                    <p>Designed and prototyped an integrated IoT platform for residential energy management. Focused on intuitive user controls, real-time data visualization, and seamless device integration for sustainable living.</p>
-                    <a href="#" class="btn-outline">Explore Project</a>
-                </div>
-            </div>
-
-            </div>
+        </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="about-section">
         <div class="about-grid">
-            <div>
-                <h2>About Me</h2>
-                <p>With a comprehensive background in <strong>Mechanical Engineering</strong> from the University of Waterloo, combined with a passion for <strong>Product Design</strong> and a foundation in <strong>Education</strong>, I excel at tackling complex challenges from multiple angles.</p>
-                <br>
-                <p>My journey from designing robust mechanical systems to crafting intuitive user experiences has equipped me with a unique ability to understand both the technical feasibility and the human desirability of a product. I thrive on bringing ideas from concept through to tangible, impactful solutions.</p>
-                <br>
-                <p>Currently seeking challenging roles in Canada, I am eager to contribute my interdisciplinary expertise to teams building the next generation of innovative products, particularly where hardware and software intersect to enhance human interaction.</p>
+            <div class="about-text">
+                <h2>From Engineer to Educator to Designer</h2>
+                <p>My journey isn't linear, and that's my superpower. I started in <strong>Mechanical Engineering</strong>, learning the rigour of how things work. I then moved into <strong>Education</strong>, mastering how people think and learn.</p>
+                <p>Now, as a <strong>Product Designer</strong>, I bridge these worlds. I don't just design screens; I design systems that are technically feasible (thanks to engineering) and deeply empathetic to the user's learning curve (thanks to teaching).</p>
+                <p><strong>Targeting Roles:</strong> Product Designer, Learning Experience Designer, XR Designer.</p>
             </div>
-            <div class="skills">
+            <div>
                 <h3>Technical Toolbox</h3>
-                <ul>
-                    <li>Figma</li>
-                    <li>Adobe Creative Suite (Ps, Ai, Id)</li>
-                    <li>SolidWorks (CAD)</li>
-                    <li>Fusion 360</li>
-                    <li>Unity (VR/AR Development)</li>
-                    <li>C#</li>
-                    <li>Python</li>
-                    <li>HTML/CSS/JavaScript Basics</li>
-                    <li>User Research & Testing</li>
-                    <li>Prototyping (Low-fi to High-fi)</li>
-                    <li>Design Thinking</li>
-                    <li>Agile/Scrum Methodologies</li>
-                </ul>
+                <div class="skills-list">
+                    <span class="skill-pill">Figma</span>
+                    <span class="skill-pill">SolidWorks</span>
+                    <span class="skill-pill">Unity (VR)</span>
+                    <span class="skill-pill">C#</span>
+                    <span class="skill-pill">User Research</span>
+                    <span class="skill-pill">Adobe Creative Suite</span>
+                    <span class="skill-pill">Rapid Prototyping</span>
+                </div>
+                <br>
+                <h3>Sectors of Interest</h3>
+                <div class="skills-list">
+                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">EdTech</span>
+                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">Health & Wellbeing</span>
+                    <span class="skill-pill" style="background:#FFF9C4; color:#F57F17;">Public Institutions</span>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Sinyan (Amy) Yim. All rights reserved.</p>
-        <p style="margin-top: 10px;">
-            <a href="https://www.linkedin.com/in/sinyanyim/" target="_blank">LinkedIn</a> | 
-            <a href="mailto:amyyim1989@gmail.com">Email Me</a>
-        </p>
+        <p>© 2025 Sinyan (Amy) Yim. Built with code.</p>
+        <br>
+        <a href="https://www.linkedin.com/in/sinyanyim/" target="_blank">LinkedIn</a>
+        <a href="mailto:amyyim1989@gmail.com">Email Me</a>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to the clicked button
-                    this.classList.add('active');
-
-                    const filterValue = this.dataset.filter;
-
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all' || card.dataset.category.includes(filterValue)) {
-                            card.style.display = 'block'; // Show card
-                        } else {
-                            card.style.display = 'none'; // Hide card
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
